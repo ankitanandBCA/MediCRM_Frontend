@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediCRM - Departments</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Department CSS -->
+    <link rel="stylesheet"
+          href="css/departments.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     TOP BAR
+========================================== -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <span class="brand-mark">+</span>
+
+        <span>MediCRM</span>
+
+    </div>
+
+
+    <div class="page-title">
+
+        <span>Hospital Management</span>
+
+        <strong>Departments</strong>
+
+    </div>
+
+
+    <div class="status">
+
+        <span></span>
+
+        Backend Connected
+
+    </div>
+
+</header>
+
+
+
+<!-- ==========================================
+     MAIN CONTAINER
+========================================== -->
+
+<main class="container">
+
+
+    <!-- ======================================
+         SIDEBAR
+    ======================================= -->
+
+    <aside class="sidebar"
+           id="sidebar">
+
+
+        <!-- Brand -->
+
+     
+
+
+        <p class="sidebar-label">
+
+            Hospital Workspace
+
+        </p>
+
+
+        <!-- Navigation -->
+
+        <nav class="side-nav">
+
+
+            <!-- Dashboard -->
+
+            <a class="nav-link"
+               href="dashboard.html">
+
+                <span class="nav-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- Hospital -->
+
+            <a class="nav-link"
+               href="hospital.html">
+
+                <span class="nav-icon">
+                    🏥
+                </span>
+
+                <span>
+                    Hospital
+                </span>
+
+            </a>
+
+
+            <!-- Departments -->
+
+            <a class="nav-link active"
+               href="departments.html">
+
+                <span class="nav-icon">
+                    🏢
+                </span>
+
+                <span>
+                    Departments
+                </span>
+
+            </a>
+
+
+            <!-- Doctors -->
+
+            <a class="nav-link"
+               href="doctors.html">
+
+                <span class="nav-icon">
+                    👨‍⚕️
+                </span>
+
+                <span>
+                    Doctors
+                </span>
+
+            </a>
+
+
+            <!-- Staffs -->
+
+            <a class="nav-link"
+               href="staffs.html">
+
+                <span class="nav-icon">
+                    👥
+                </span>
+
+                <span>
+                    Staffs
+                </span>
+
+            </a>
+
+
+            <!-- Users -->
+
+         
+
+
+            <!-- Rooms -->
+
+            <a class="nav-link"
+               href="rooms.html">
+
+                <span class="nav-icon">
+                    🛏️
+                </span>
+
+                <span>
+                    Rooms
+                </span>
+
+            </a>
+
+
+            <!-- Medicines -->
+
+            <a class="nav-link"
+               href="medicines.html">
+
+                <span class="nav-icon">
+                    💊
+                </span>
+
+                <span>
+                    Medicines
+                </span>
+
+            </a>
+
+
+            <!-- Create Appointment -->
+
+            <a class="nav-link"
+               href="create-appointment.html">
+
+                <span class="nav-icon">
+                    ➕
+                </span>
+
+                <span>
+                    Create Appointment
+                </span>
+
+            </a>
+
+
+            <!-- View Appointments -->
+
+            <a class="nav-link"
+               href="view-appointments.html">
+
+                <span class="nav-icon">
+                    📅
+                </span>
+
+                <span>
+                    View Appointments
+                </span>
+
+            </a>
+
+
+          
+
+
+            <!-- OPD -->
+
+            <a class="nav-link"
+               href="OPD.html">
+
+                <span class="nav-icon">
+                    🏥
+                </span>
+
+                <span>
+                    OPD
+                </span>
+
+            </a>
+
+
+            <!-- Blood Bank -->
+
+            <a class="nav-link"
+               href="BloodBank.html">
+
+                <span class="nav-icon">
+                    🩸
+                </span>
+
+                <span>
+                    Blood Bank
+                </span>
+
+            </a>
+
+
+            <!-- Reports -->
+
+            <a class="nav-link"
+               href="Reports.html">
+
+                <span class="nav-icon">
+                    📊
+                </span>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+
+            <!-- Bill -->
+
+            <a class="nav-link"
+               href="Bill.html">
+
+                <span class="nav-icon">
+                    💳
+                </span>
+
+                <span>
+                    Bill
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- Logout -->
+
+        <button class="logout-btn"
+                id="logoutBtn"
+                type="button">
+
+            <span>
+                ↪
+            </span>
+
+            Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ======================================
+         PAGE CONTENT
+    ======================================= -->
+
+    <section class="content">
+
+
+        <!-- ==================================
+             HERO
+        =================================== -->
+
+        <section class="hero">
+
+            <div>
+
+                <p class="eyebrow">
+                    MediCRM / Department
+                </p>
+
+
+                <h1>
+                    Manage Hospital Departments
+                </h1>
+
+
+                <p class="subtitle">
+                    Select a hospital and manage its departments easily.
+                </p>
+
+            </div>
+
+
+            <div class="hero-icon">
+
+                🏥
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================
+             MAIN LAYOUT
+        =================================== -->
+
+        <section class="layout">
+
+
+            <!-- ==================================
+                 HOSPITAL SELECT PANEL
+            =================================== -->
+
+            <aside class="panel hospital-panel">
+
+
+                <div class="panel-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Hospitals
+                        </p>
+
+                        <h2>
+                            Select Hospital
+                        </h2>
+
+                    </div>
+
+
+                    <span id="hospitalCount"
+                          class="count">
+
+                        0
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- Hospital Search -->
+
+                <div class="search-box">
+
+                    <span>
+                        ⌕
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="hospitalSearch"
+                        placeholder="Search hospital..."
+                    >
+
+                </div>
+
+
+
+                <!-- Hospital Dropdown -->
+
+                <div class="hospital-select-box">
+
+                    <label for="hospitalSelect">
+
+                        Hospital
+
+                    </label>
+
+
+                    <select
+                        id="hospitalSelect"
+                        name="hospitalId"
+                        required>
+
+                        <option value="">
+
+                            Loading hospitals...
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </aside>
+
+
+
+            <!-- ==================================
+                 DEPARTMENT FORM
+            =================================== -->
+
+            <section class="panel form-panel">
+
+
+                <div class="panel-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Department
+                        </p>
+
+                        <h2>
+                            Add Department
+                        </h2>
+
+                    </div>
+
+
+                    <span class="required-badge">
+
+                        * Required
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- Department Form -->
+
+                <form id="departmentForm">
+
+
+                    <!-- ==================================
+                         HOSPITAL
+                    =================================== -->
+
+                    <div class="field">
+
+
+                        <label for="hospitalSelect">
+
+                            Hospital Name
+
+                            <span>
+                                *
+                            </span>
+
+                        </label>
+
+<!---         
+                      <select id="hospitalSelect" name="hospitalId" required>
+    <option value="">Select Hospital</option>
+</select>
+-->
+
+                        <!-- Selected Hospital ID -->
+
+                        <div
+                            id="hospitalInfo"
+                            class="selected-info hidden">
+
+                            <span>
+                                Hospital ID
+                            </span>
+
+
+                            <strong id="selectedHospitalId">
+
+                                -
+
+                            </strong>
+
+                        </div>
+
+
+                        <!-- Hospital Error -->
+
+                        <p
+                            id="hospitalError"
+                            class="error">
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- ==================================
+                         DEPARTMENT NAME
+                    =================================== -->
+
+                    <div class="field">
+
+
+                        <label for="name">
+
+                            Department Name
+
+                            <span>
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="e.g. Cardiology"
+                            required
+                        >
+
+
+                    </div>
+
+
+
+                    <!-- ==================================
+                         DESCRIPTION
+                    =================================== -->
+
+                    <div class="field">
+
+
+                        <label for="description">
+
+                            Description
+
+                        </label>
+
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            placeholder="Enter department description"
+                        ></textarea>
+
+
+                    </div>
+
+
+
+                    <!-- ==================================
+                         BUTTONS
+                    =================================== -->
+
+                    <div class="actions">
+
+
+                        <button
+                            type="button"
+                            id="resetBtn"
+                            class="btn secondary">
+
+                            Reset
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn primary">
+
+                            ＋ Add Department
+
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- Form Message -->
+
+                    <p
+                        id="formMessage"
+                        class="form-message">
+
+                    </p>
+
+
+                </form>
+
+
+            </section>
+
+
+        </section>
+
+
+
+        <!-- ==================================
+             DEPARTMENT TABLE
+        =================================== -->
+
+        <section class="panel department-panel">
+
+
+            <div class="panel-head">
+
+
+                <div>
+
+                    <p class="eyebrow">
+
+                        Department List
+
+                    </p>
+
+
+                    <h2>
+
+                        Hospital Departments
+
+                    </h2>
+
+                </div>
+
+
+
+                <button
+                    id="refreshBtn"
+                    class="btn small"
+                    type="button">
+
+                    ↻ Refresh
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- Table -->
+
+            <div class="table-wrap">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+
+                            <th>
+                                Department
+                            </th>
+
+
+                            <th>
+                                Description
+                            </th>
+
+
+                            <th>
+                                Hospital ID
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody id="departmentTable">
+
+
+                        <tr>
+
+                            <td
+                                colspan="4"
+                                class="empty">
+
+                                Select a hospital to view departments.
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     TOAST
+========================================== -->
+
+<div
+    id="toast"
+    class="toast">
+
+</div>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/departments.js"></script>
+
+
+</body>
+
+</html>

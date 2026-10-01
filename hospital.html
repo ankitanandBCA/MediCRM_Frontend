@@ -1,0 +1,1552 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediCRM — Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+    <style>
+
+        /* ===============================
+           PAGE
+        =============================== */
+
+        .hospital-content {
+            padding: 30px;
+        }
+
+
+        /* ===============================
+           PAGE HEADER
+        =============================== */
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .page-header h2 {
+            margin: 5px 0 8px;
+            font-family: "Outfit", sans-serif;
+            font-size: 30px;
+            font-weight: 800;
+            color: #0b1f2a;
+        }
+
+        .page-header p {
+            margin: 0;
+            color: #657984;
+            font-size: 14px;
+        }
+
+
+        /* ===============================
+           PROFILE CARD
+        =============================== */
+
+        .hospital-profile-card {
+            background: #ffffff;
+            border: 1px solid #e3eeeb;
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 12px 35px rgba(11, 31, 42, 0.08);
+        }
+
+
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding-bottom: 25px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid #e7efed;
+        }
+
+
+        .hospital-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(
+                135deg,
+                #14b8a6,
+                #0f766e
+            );
+
+            color: #ffffff;
+
+            font-size: 32px;
+            font-weight: 800;
+
+            box-shadow:
+                0 10px 25px
+                rgba(15, 118, 110, 0.20);
+        }
+
+
+        .profile-top h3 {
+            margin: 0 0 5px;
+
+            font-family: "Outfit", sans-serif;
+
+            font-size: 24px;
+            font-weight: 800;
+
+            color: #0b1f2a;
+        }
+
+
+        .profile-top p {
+            margin: 0;
+
+            color: #657984;
+
+            font-size: 13px;
+        }
+
+
+        /* ===============================
+           FORM
+        =============================== */
+
+        .hospital-form {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+
+        .form-group label {
+            margin-bottom: 8px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            color: #193642;
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+
+            border: 1px solid #d8e6e2;
+
+            border-radius: 12px;
+
+            background: #f9fcfb;
+
+            color: #193642;
+
+            font-family:
+                "Plus Jakarta Sans",
+                sans-serif;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+
+        .form-group input {
+            height: 50px;
+            padding: 0 15px;
+        }
+
+
+        .form-group textarea {
+            min-height: 100px;
+            padding: 14px 15px;
+
+            resize: vertical;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+
+            border-color: #0f766e;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(15, 118, 110, 0.08);
+        }
+
+
+        .form-group input:disabled,
+        .form-group textarea:disabled {
+
+            background: #f1f6f5;
+
+            color: #60747d;
+
+            cursor: not-allowed;
+        }
+
+
+        /* ===============================
+           ACTIONS
+        =============================== */
+
+        .form-actions {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            gap: 12px;
+
+            margin-top: 28px;
+
+            padding-top: 24px;
+
+            border-top:
+                1px solid #e7efed;
+        }
+
+
+        .btn {
+
+            border: none;
+
+            border-radius: 999px;
+
+            padding: 13px 24px;
+
+            font-family:
+                "Plus Jakarta Sans",
+                sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .btn-primary {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #14b8a6,
+                    #0f766e
+                );
+
+            color: #ffffff;
+        }
+
+
+        .btn-primary:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 22px
+                rgba(15, 118, 110, 0.22);
+        }
+
+
+        .btn-secondary {
+
+            background: #eef6f4;
+
+            color: #31505b;
+        }
+
+
+        .btn-secondary:hover {
+
+            background: #e1efec;
+        }
+
+
+        /* ===============================
+           STATUS
+        =============================== */
+
+        .message {
+
+            display: none;
+
+            margin-bottom: 20px;
+
+            padding: 12px 15px;
+
+            border-radius: 11px;
+
+            font-size: 13px;
+        }
+
+
+        .message.show {
+            display: block;
+        }
+
+
+        .message.success {
+
+            background: #ecfdf5;
+
+            color: #047857;
+        }
+
+
+        .message.error {
+
+            background: #fff1f2;
+
+            color: #e11d48;
+        }
+
+
+        .loading {
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            color: #60747d;
+
+            font-size: 14px;
+        }
+
+
+        /* ===============================
+           RESPONSIVE
+        =============================== */
+
+        @media (max-width: 800px) {
+
+            .hospital-content {
+                padding: 20px;
+            }
+
+            .hospital-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: auto;
+            }
+
+            .page-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .hospital-profile-card {
+                padding: 20px;
+            }
+
+            .profile-top {
+                align-items: flex-start;
+            }
+
+            .hospital-logo {
+                width: 58px;
+                height: 58px;
+                font-size: 26px;
+            }
+
+            .profile-top h3 {
+                font-size: 20px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     MOBILE MENU
+========================================= -->
+
+<button
+    class="sidebar-toggle"
+    id="sidebarToggle"
+    type="button">
+
+    ☰
+
+</button>
+
+
+
+<!-- =========================================
+     SIDEBAR
+========================================= -->
+
+<aside
+    class="sidebar"
+    id="sidebar">
+
+
+    <a
+        class="brand"
+        href="hospitalDashBoard.html">
+
+        <span class="brand-mark">
+            +
+        </span>
+
+        <span>
+            MediCRM
+        </span>
+
+    </a>
+
+
+    <p class="sidebar-label">
+
+        Hospital Workspace
+
+    </p>
+
+
+    <nav class="side-nav">
+
+
+        <a
+            class="nav-link"
+            href="hospitalDashBoard.html">
+
+            <span class="nav-icon">
+                🏠
+            </span>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <a
+            class="nav-link active"
+            href="hospital.html">
+
+            <span class="nav-icon">
+                🏥
+            </span>
+
+            <span>
+                Hospital
+            </span>
+
+        </a>
+
+
+        <a
+            class="nav-link"
+            href="departments.html">
+
+            <span class="nav-icon">
+                🏢
+            </span>
+
+            <span>
+                Departments
+            </span>
+
+        </a>
+
+
+        <a
+            class="nav-link"
+            href="doctors.html">
+
+            <span class="nav-icon">
+                👨‍⚕️
+            </span>
+
+            <span>
+                Doctors
+            </span>
+
+        </a>
+
+
+        <a
+            class="nav-link"
+            href="staffs.html">
+
+            <span class="nav-icon">
+                👥
+            </span>
+
+            <span>
+                Staffs
+            </span>
+
+        </a>
+
+
+        <a
+            class="nav-link"
+            href="users.html">
+
+            <span class="nav-icon">
+                👤
+            </span>
+
+            <span>
+                Users
+            </span>
+
+        </a>
+
+
+        <a
+            class="nav-link"
+            href="rooms.html">
+
+            <span class="nav-icon">
+                🛏️
+            </span>
+
+            <span>
+                Rooms
+            </span>
+
+        </a>
+
+
+        <a
+            class="nav-link"
+            href="medicines.html">
+
+            <span class="nav-icon">
+                💊
+            </span>
+
+            <span>
+                Medicines
+            </span>
+
+        </a>
+
+
+        <div class="nav-divider"></div>
+
+
+        <a
+            class="nav-link"
+            href="view-appointments.html">
+
+            <span class="nav-icon">
+                📅
+            </span>
+
+            <span>
+                View Appointments
+            </span>
+
+        </a>
+
+
+        <a
+            class="nav-link"
+            href="create-appointment.html">
+
+            <span class="nav-icon">
+                ➕
+            </span>
+
+            <span>
+                Create Appointment
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+    <button
+        class="logout-btn"
+        id="logoutBtn"
+        type="button">
+
+        <span>
+            ↪
+        </span>
+
+        Logout
+
+    </button>
+
+
+</aside>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="dash-main">
+
+
+    <!-- =====================================
+         TOP HEADER
+    ====================================== -->
+
+    <header class="dash-top">
+
+
+        <div>
+
+            <p class="eyebrow">
+
+                Hospital Management
+
+            </p>
+
+
+            <h1 id="hospitalTitle">
+
+                Hospital Profile
+
+            </h1>
+
+        </div>
+
+
+        <div class="top-actions">
+
+            <span
+                class="date-text"
+                id="currentDate">
+            </span>
+
+
+            <a
+                class="network-btn"
+                href="hospitals.html">
+
+                Hospital Network
+
+            </a>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =====================================
+         CONTENT
+    ====================================== -->
+
+    <section class="hospital-content">
+
+
+        <div class="page-header">
+
+            <div>
+
+                <p class="small-label">
+
+                    Hospital Information
+
+                </p>
+
+                <h2>
+
+                    Hospital Profile
+
+                </h2>
+
+                <p>
+
+                    View and manage your registered
+                    hospital information.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STATUS -->
+
+        <div
+            class="message error"
+            id="errorMessage">
+        </div>
+
+
+        <div
+            class="message success"
+            id="successMessage">
+
+            Hospital information updated successfully.
+
+        </div>
+
+
+
+        <!-- PROFILE -->
+
+        <div
+            class="hospital-profile-card"
+            id="hospitalCard">
+
+
+            <div class="loading"
+                 id="loadingMessage">
+
+                Loading hospital information...
+
+            </div>
+
+
+            <div id="hospitalDetails"
+                 style="display:none;">
+
+
+                <!-- PROFILE TOP -->
+
+                <div class="profile-top">
+
+
+                    <div
+                        class="hospital-logo"
+                        id="hospitalLogo">
+
+                        +
+
+                    </div>
+
+
+                    <div>
+
+                        <h3 id="profileHospitalName">
+
+                            Hospital
+
+                        </h3>
+
+                        <p>
+
+                            Registered Hospital
+                            Information
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- FORM -->
+
+                <form
+                    class="hospital-form"
+                    id="hospitalForm">
+
+
+                    <div class="form-group">
+
+                        <label for="hospitalId">
+
+                            Hospital ID
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hospitalId"
+                            disabled>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hospitalName">
+
+                            Hospital Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hospitalName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hospitalEmail">
+
+                            Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="hospitalEmail"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hospitalPhone">
+
+                            Phone
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hospitalPhone">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hospitalCity">
+
+                            City
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hospitalCity">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hospitalState">
+
+                            State
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hospitalState">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hospitalPincode">
+
+                            Pincode
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hospitalPincode">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hospitalGst">
+
+                            GST Number
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hospitalGst">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hospitalLicense">
+
+                            License Number
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hospitalLicense">
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="hospitalAddress">
+
+                            Address
+
+                        </label>
+
+                        <textarea
+                            id="hospitalAddress">
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="resetBtn">
+
+                            Reset
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="updateBtn">
+
+                            Update Hospital →
+
+                        </button>
+
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script>
+
+    /* =========================================
+       API
+    ========================================= */
+
+    const API_BASE =
+        "http://localhost:7001/api/hospital";
+
+
+    /* =========================================
+       DOM
+    ========================================= */
+
+    const hospitalTitle =
+        document.getElementById(
+            "hospitalTitle"
+        );
+
+    const currentDate =
+        document.getElementById(
+            "currentDate"
+        );
+
+    const hospitalIdInput =
+        document.getElementById(
+            "hospitalId"
+        );
+
+    const hospitalName =
+        document.getElementById(
+            "hospitalName"
+        );
+
+    const hospitalEmail =
+        document.getElementById(
+            "hospitalEmail"
+        );
+
+    const hospitalPhone =
+        document.getElementById(
+            "hospitalPhone"
+        );
+
+    const hospitalCity =
+        document.getElementById(
+            "hospitalCity"
+        );
+
+    const hospitalState =
+        document.getElementById(
+            "hospitalState"
+        );
+
+    const hospitalPincode =
+        document.getElementById(
+            "hospitalPincode"
+        );
+
+    const hospitalGst =
+        document.getElementById(
+            "hospitalGst"
+        );
+
+    const hospitalLicense =
+        document.getElementById(
+            "hospitalLicense"
+        );
+
+    const hospitalAddress =
+        document.getElementById(
+            "hospitalAddress"
+        );
+
+    const profileHospitalName =
+        document.getElementById(
+            "profileHospitalName"
+        );
+
+    const hospitalLogo =
+        document.getElementById(
+            "hospitalLogo"
+        );
+
+    const loadingMessage =
+        document.getElementById(
+            "loadingMessage"
+        );
+
+    const hospitalDetails =
+        document.getElementById(
+            "hospitalDetails"
+        );
+
+    const errorMessage =
+        document.getElementById(
+            "errorMessage"
+        );
+
+    const successMessage =
+        document.getElementById(
+            "successMessage"
+        );
+
+    const hospitalForm =
+        document.getElementById(
+            "hospitalForm"
+        );
+
+    const resetBtn =
+        document.getElementById(
+            "resetBtn"
+        );
+
+    const updateBtn =
+        document.getElementById(
+            "updateBtn"
+        );
+
+    const logoutBtn =
+        document.getElementById(
+            "logoutBtn"
+        );
+
+    const sidebarToggle =
+        document.getElementById(
+            "sidebarToggle"
+        );
+
+    const sidebar =
+        document.getElementById(
+            "sidebar"
+        );
+
+
+    /* =========================================
+       DATE
+    ========================================= */
+
+    currentDate.textContent =
+        new Date().toLocaleDateString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+
+    /* =========================================
+       HOSPITAL ID
+    ========================================= */
+
+    const hospitalId =
+        localStorage.getItem(
+            "hospitalId"
+        );
+
+
+    /* =========================================
+       CHECK LOGIN
+    ========================================= */
+
+    if (!hospitalId) {
+
+        window.location.href =
+            "hospitals.html";
+
+    }
+
+
+    /* =========================================
+       LOAD HOSPITAL
+    ========================================= */
+
+    async function loadHospital() {
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_BASE}/${hospitalId}`
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Hospital data not found"
+                );
+
+            }
+
+
+            const hospital =
+                await response.json();
+
+
+            console.log(
+                "Hospital Data:",
+                hospital
+            );
+
+
+            /* ================================
+               FILL DATA
+            ================================= */
+
+            hospitalIdInput.value =
+                hospital.hospitalId || "";
+
+
+            hospitalName.value =
+                hospital.name || "";
+
+
+            hospitalEmail.value =
+                hospital.email || "";
+
+
+            hospitalPhone.value =
+                hospital.phone || "";
+
+
+            hospitalCity.value =
+                hospital.city || "";
+
+
+            hospitalState.value =
+                hospital.state || "";
+
+
+            hospitalPincode.value =
+                hospital.pincode || "";
+
+
+            hospitalGst.value =
+                hospital.gstno || "";
+
+
+            hospitalLicense.value =
+                hospital.licanceNo || "";
+
+
+            hospitalAddress.value =
+                hospital.address || "";
+
+
+            /* ================================
+               HEADER
+            ================================= */
+
+            const name =
+                hospital.name ||
+                "Hospital";
+
+
+            hospitalTitle.textContent =
+                name;
+
+
+            profileHospitalName.textContent =
+                name;
+
+
+            hospitalLogo.textContent =
+                name
+                    .charAt(0)
+                    .toUpperCase();
+
+
+            /* ================================
+               SHOW
+            ================================= */
+
+            loadingMessage.style.display =
+                "none";
+
+            hospitalDetails.style.display =
+                "block";
+
+
+            /* ================================
+               SAVE SESSION
+            ================================= */
+
+            sessionStorage.setItem(
+                "loggedInHospital",
+                JSON.stringify(hospital)
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Hospital API Error:",
+                error
+            );
+
+
+            loadingMessage.style.display =
+                "none";
+
+
+            errorMessage.textContent =
+                "Hospital data load nahi ho raha. Hospital Service check karein.";
+
+            errorMessage.classList.add(
+                "show"
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       RESET
+    ========================================= */
+
+    resetBtn.addEventListener(
+        "click",
+        loadHospital
+    );
+
+
+    /* =========================================
+       UPDATE
+    ========================================= */
+
+    hospitalForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const data = {
+
+                name:
+                    hospitalName.value.trim(),
+
+                email:
+                    hospitalEmail.value.trim(),
+
+                phone:
+                    hospitalPhone.value.trim(),
+
+                address:
+                    hospitalAddress.value.trim(),
+
+                city:
+                    hospitalCity.value.trim(),
+
+                state:
+                    hospitalState.value.trim(),
+
+                pincode:
+                    hospitalPincode.value.trim(),
+
+                gstno:
+                    hospitalGst.value.trim(),
+
+                licanceNo:
+                    hospitalLicense.value.trim()
+
+            };
+
+
+            updateBtn.disabled =
+                true;
+
+            updateBtn.textContent =
+                "Updating...";
+
+
+            errorMessage.classList.remove(
+                "show"
+            );
+
+            successMessage.classList.remove(
+                "show"
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_BASE}/${hospitalId}`,
+                        {
+
+                            method:
+                                "PUT",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    data
+                                )
+
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Update failed"
+                    );
+
+                }
+
+
+                const updatedHospital =
+                    await response.json();
+
+
+                console.log(
+                    "Updated Hospital:",
+                    updatedHospital
+                );
+
+
+                sessionStorage.setItem(
+                    "loggedInHospital",
+                    JSON.stringify(
+                        updatedHospital
+                    )
+                );
+
+
+                successMessage.textContent =
+                    "Hospital information updated successfully.";
+
+                successMessage.classList.add(
+                    "show"
+                );
+
+
+                hospitalTitle.textContent =
+                    updatedHospital.name ||
+                    "Hospital Profile";
+
+
+                profileHospitalName.textContent =
+                    updatedHospital.name ||
+                    "Hospital";
+
+
+            } catch (error) {
+
+                console.error(
+                    "Update Error:",
+                    error
+                );
+
+
+                errorMessage.textContent =
+                    "Hospital update nahi ho raha. Backend endpoint check karein.";
+
+                errorMessage.classList.add(
+                    "show"
+                );
+
+            } finally {
+
+                updateBtn.disabled =
+                    false;
+
+                updateBtn.textContent =
+                    "Update Hospital →";
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       LOGOUT
+    ========================================= */
+
+    logoutBtn.addEventListener(
+        "click",
+        function () {
+
+            localStorage.removeItem(
+                "hospitalId"
+            );
+
+            sessionStorage.removeItem(
+                "loggedInHospital"
+            );
+
+            window.location.href =
+                "hospitals.html";
+
+        }
+    );
+
+
+    /* =========================================
+       MOBILE SIDEBAR
+    ========================================= */
+
+    sidebarToggle.addEventListener(
+        "click",
+        function () {
+
+            sidebar.classList.toggle(
+                "open"
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       LOAD
+    ========================================= */
+
+    loadHospital();
+
+</script>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediCRM - Medicines</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="css/medicines.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= TOPBAR ================= -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <span class="brand-mark">+</span>
+
+        <span>MediCRM</span>
+
+    </div>
+
+
+    <div class="page-title">
+
+        <span>Hospital Management</span>
+
+        <strong>Medicines</strong>
+
+    </div>
+
+
+    <div class="status">
+
+        <span></span>
+
+        Backend Connected
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+
+        <a class="brand"
+           href="dashboard.html">
+
+            <span class="brand-mark">+</span>
+
+            <span>MediCRM</span>
+
+        </a>
+
+
+        <p class="sidebar-label">
+            Hospital Workspace
+        </p>
+
+
+        
+        <nav class="side-nav">
+
+
+            <!-- Dashboard -->
+
+            <a class="nav-link"
+               href="dashboard.html">
+
+                <span class="nav-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- Hospital -->
+
+            <a class="nav-link"
+               href="hospital.html">
+
+                <span class="nav-icon">
+                    🏥
+                </span>
+
+                <span>
+                    Hospital
+                </span>
+
+            </a>
+
+
+            <!-- Departments -->
+
+            <a class="nav-link active"
+               href="departments.html">
+
+                <span class="nav-icon">
+                    🏢
+                </span>
+
+                <span>
+                    Departments
+                </span>
+
+            </a>
+
+
+            <!-- Doctors -->
+
+            <a class="nav-link"
+               href="doctors.html">
+
+                <span class="nav-icon">
+                    👨‍⚕️
+                </span>
+
+                <span>
+                    Doctors
+                </span>
+
+            </a>
+
+
+            <!-- Staffs -->
+
+            <a class="nav-link"
+               href="staffs.html">
+
+                <span class="nav-icon">
+                    👥
+                </span>
+
+                <span>
+                    Staffs
+                </span>
+
+            </a>
+
+
+            <!-- Users -->
+
+         
+
+
+            <!-- Rooms -->
+
+            <a class="nav-link"
+               href="rooms.html">
+
+                <span class="nav-icon">
+                    🛏️
+                </span>
+
+                <span>
+                    Rooms
+                </span>
+
+            </a>
+
+
+            <!-- Medicines -->
+
+            <a class="nav-link"
+               href="medicines.html">
+
+                <span class="nav-icon">
+                    💊
+                </span>
+
+                <span>
+                    Medicines
+                </span>
+
+            </a>
+
+
+            <!-- Create Appointment -->
+
+            <a class="nav-link"
+               href="create-appointment.html">
+
+                <span class="nav-icon">
+                    ➕
+                </span>
+
+                <span>
+                    Create Appointment
+                </span>
+
+            </a>
+
+
+            <!-- View Appointments -->
+
+            <a class="nav-link"
+               href="view-appointments.html">
+
+                <span class="nav-icon">
+                    📅
+                </span>
+
+                <span>
+                    View Appointments
+                </span>
+
+            </a>
+
+
+          
+
+
+            <!-- OPD -->
+
+            <a class="nav-link"
+               href="OPD.html">
+
+                <span class="nav-icon">
+                    🏥
+                </span>
+
+                <span>
+                    OPD
+                </span>
+
+            </a>
+
+
+            <!-- Blood Bank -->
+
+            <a class="nav-link"
+               href="BloodBank.html">
+
+                <span class="nav-icon">
+                    🩸
+                </span>
+
+                <span>
+                    Blood Bank
+                </span>
+
+            </a>
+
+
+            <!-- Reports -->
+
+            <a class="nav-link"
+               href="Reports.html">
+
+                <span class="nav-icon">
+                    📊
+                </span>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+
+            <!-- Bill -->
+
+            <a class="nav-link"
+               href="Bill.html">
+
+                <span class="nav-icon">
+                    💳
+                </span>
+
+                <span>
+                    Bill
+                </span>
+
+            </a>
+
+
+        </nav>
+
+        <button class="logout-btn"
+                id="logoutBtn"
+                type="button">
+
+            ↪ Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="content">
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div>
+
+                <p class="eyebrow">
+                    MediCRM / Medicine
+                </p>
+
+                <h1>
+                    Manage Medicines
+                </h1>
+
+                <p class="subtitle">
+                    Manage medicines for your hospital.
+                </p>
+
+            </div>
+
+
+            <div class="hero-icon">
+                💊
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= LAYOUT ================= -->
+
+        <section class="layout">
+
+
+            <!-- ================= HOSPITAL INFO ================= -->
+
+            <aside class="panel hospital-panel">
+
+
+                <div class="panel-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Hospital
+                        </p>
+
+                        <h2>
+                            Current Hospital
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hospital-card">
+
+                    <div class="hospital-icon">
+                        🏥
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Logged-in Hospital
+                        </span>
+
+                        <strong id="hospitalIdText">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>
+                        Hospital ID
+                    </span>
+
+                    <strong id="hospitalId">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-message">
+
+                    💡 Medicines added here will belong
+                    to this hospital only.
+
+                </div>
+
+            </aside>
+
+
+
+            <!-- ================= MEDICINE FORM ================= -->
+
+            <section class="panel form-panel">
+
+
+                <div class="panel-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Medicine
+                        </p>
+
+                        <h2>
+                            Add Medicine
+                        </h2>
+
+                    </div>
+
+
+                    <span class="required-badge">
+                        * Required
+                    </span>
+
+                </div>
+
+
+
+                <form id="medicineForm">
+
+
+                    <!-- NAME -->
+
+                    <div class="field">
+
+                        <label for="name">
+
+                            Medicine Name
+
+                            <span>*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="e.g. Paracetamol"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="field">
+
+                        <label for="description">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="description"
+                            placeholder="Enter medicine description"></textarea>
+
+                    </div>
+
+
+
+                    <!-- QUANTITY + PRICE -->
+
+                    <div class="two-column">
+
+
+                        <div class="field">
+
+                            <label for="quantity">
+
+                                Quantity
+
+                                <span>*</span>
+
+                            </label>
+
+                            <input
+                                type="number"
+                                id="quantity"
+                                min="0"
+                                placeholder="100"
+                                required>
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label for="price">
+
+                                Price
+
+                                <span>*</span>
+
+                            </label>
+
+                            <input
+                                type="number"
+                                id="price"
+                                min="0"
+                                placeholder="50"
+                                required>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="field">
+
+                        <label for="category">
+
+                            Category
+
+                            <span>*</span>
+
+                        </label>
+
+                        <select id="category"
+                                required>
+
+                            <option value="">
+                                Select Category
+                            </option>
+
+                            <option value="Tablet">
+                                Tablet
+                            </option>
+
+                            <option value="Capsule">
+                                Capsule
+                            </option>
+
+                            <option value="Syrup">
+                                Syrup
+                            </option>
+
+                            <option value="Injection">
+                                Injection
+                            </option>
+
+                            <option value="Ointment">
+                                Ointment
+                            </option>
+
+                            <option value="Drops">
+                                Drops
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- STATUS -->
+
+                    <div class="field">
+
+                        <label for="status">
+
+                            Status
+
+                            <span>*</span>
+
+                        </label>
+
+                        <select id="status"
+                                required>
+
+                            <option value="">
+                                Select Status
+                            </option>
+
+                            <option value="ACTIVE">
+                                ACTIVE
+                            </option>
+
+                            <option value="INACTIVE">
+                                INACTIVE
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="actions">
+
+                        <button
+                            type="button"
+                            id="resetBtn"
+                            class="btn secondary">
+
+                            Reset
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn primary">
+
+                            ＋ Add Medicine
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- ================= MEDICINE TABLE ================= -->
+
+        <section class="panel medicine-panel">
+
+
+            <div class="panel-head">
+
+                <div>
+
+                    <p class="eyebrow">
+                        Medicine List
+                    </p>
+
+                    <h2>
+                        Hospital Medicines
+                    </h2>
+
+                </div>
+
+
+                <button
+                    id="refreshBtn"
+                    class="btn small"
+                    type="button">
+
+                    ↻ Refresh
+
+                </button>
+
+            </div>
+
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Medicine</th>
+
+                            <th>Description</th>
+
+                            <th>Quantity</th>
+
+                            <th>Price</th>
+
+                            <th>Category</th>
+
+                            <th>Status</th>
+
+                            <th>Hospital ID</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="medicineTable">
+
+                        <tr>
+
+                            <td colspan="9"
+                                class="empty">
+
+                                Loading medicines...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </section>
+
+</main>
+
+
+
+<script src="js/medicines.js"></script>
+
+</body>
+
+</html>

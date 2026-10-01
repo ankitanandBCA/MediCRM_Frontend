@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>MediCRM — Hospital Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+  <!-- Mobile Menu Button -->
+  <button class="sidebar-toggle" id="sidebarToggle" type="button">
+    ☰
+  </button>
+
+
+  <!-- ================= SIDEBAR ================= -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <a class="brand" href="dashboard.html">
+      <span class="brand-mark">+</span>
+      <span>MediCRM</span>
+    </a>
+
+   
+
+      
+
+
+        <p class="sidebar-label">
+            Hospital Workspace
+        </p>
+
+
+        <nav class="side-nav">
+
+            <a class="nav-link"
+               href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+
+            <a class="nav-link"
+               href="hospital.html">
+                🏥 Hospital
+            </a>
+
+
+            <a class="nav-link"
+               href="departments.html">
+                🏢 Departments
+            </a>
+
+
+            <a class="nav-link active"
+               href="doctors.html">
+                👨‍⚕️ Doctors
+            </a>
+
+
+            <a class="nav-link"
+               href="staffs.html">
+                👥 Staffs
+            </a>
+
+
+
+
+            <a class="nav-link"
+               href="rooms.html">
+                🛏️ Rooms
+            </a>
+
+
+            <a class="nav-link"
+               href="medicines.html">
+                💊 Medicines
+            </a>
+
+
+            <a class="nav-link"
+               href="create-appointment.html">
+                ➕ Create Appointment
+            </a>
+
+
+            <a class="nav-link"
+               href="view-appointments.html">
+                📅 View Appointments
+            </a>
+
+
+
+
+
+
+
+            <!-- OPD -->
+
+            <a class="nav-link"
+               href="OPD.html">
+
+                <span class="nav-icon">
+                    🏥
+                </span>
+
+                <span>
+                    OPD
+                </span>
+
+            </a>
+
+
+
+
+            <a class="nav-link"
+               href="BloodBank.html">
+
+                <span class="nav-icon">
+                    🩸
+                </span>
+
+                <span>
+                    Blood Bank
+                </span>
+
+            </a>
+
+
+            <!-- Reports -->
+
+            <a class="nav-link"
+               href="Reports.html">
+
+                <span class="nav-icon">
+                    📊
+                </span>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+
+
+
+             <a class="nav-link"
+               href="Bill.html">
+
+                <span class="nav-icon">
+                    💳
+                </span>
+
+                <span>
+                    Bill
+                </span>
+
+            </a>
+
+
+
+
+
+            
+
+        </nav>
+
+
+        <button class="logout-btn"
+                id="logoutBtn"
+                type="button">
+
+            ↪ Logout
+
+        </button>
+
+    
+
+  </aside>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main class="dash-main">
+
+    <!-- Top Header -->
+    <header class="dash-top">
+
+      <div>
+        <p class="eyebrow">
+          Hospital Management
+        </p>
+
+        <h1 id="hospitalTitle">
+          Hospital Dashboard
+        </h1>
+      </div>
+
+      <div class="top-actions">
+
+        <span class="date-text" id="currentDate"></span>
+
+        <a class="network-btn" href="hospitals.html">
+          Hospital Network
+        </a>
+
+      </div>
+
+    </header>
+
+
+    <!-- ================= DASHBOARD CONTENT ================= -->
+
+    <section class="dashboard-content">
+
+      <div class="welcome-section">
+
+        <div>
+          <p class="small-label">
+            Welcome back
+          </p>
+
+          <h2>
+            Hospital Overview
+          </h2>
+
+          <p class="welcome-text">
+            Manage your hospital, doctors, staff,
+            rooms, medicines and appointments from
+            one place.
+          </p>
+        </div>
+
+        <a href="create-appointment.html"
+           class="primary-btn">
+
+          + Create Appointment
+
+        </a>
+
+      </div>
+
+
+      <!-- ================= STAT CARDS ================= -->
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <div class="stat-icon hospital-icon">🏥</div>
+            <span class="stat-badge">Hospital</span>
+          </div>
+
+          <h3 id="hospitalCount">1</h3>
+
+          <p>
+            Registered Hospital
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <div class="stat-icon department-icon">🏢</div>
+            <span class="stat-badge">Management</span>
+          </div>
+
+          <h3 id="departmentCount">0</h3>
+
+          <p>
+            Departments
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <div class="stat-icon doctor-icon">👨‍⚕️</div>
+            <span class="stat-badge">Medical</span>
+          </div>
+
+          <h3 id="doctorCount">0</h3>
+
+          <p>
+            Doctors
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <div class="stat-icon staff-icon">👥</div>
+            <span class="stat-badge">Team</span>
+          </div>
+
+          <h3 id="staffCount">0</h3>
+
+          <p>
+            Staff Members
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <div class="stat-icon room-icon">🛏️</div>
+            <span class="stat-badge">Infrastructure</span>
+          </div>
+
+          <h3 id="roomCount">0</h3>
+
+          <p>
+            Rooms
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <div class="stat-icon medicine-icon">💊</div>
+            <span class="stat-badge">Pharmacy</span>
+          </div>
+
+          <h3 id="medicineCount">0</h3>
+
+          <p>
+            Medicines
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <div class="stat-icon appointment-icon">📅</div>
+            <span class="stat-badge">Appointments</span>
+          </div>
+
+          <h3 id="appointmentCount">0</h3>
+
+          <p>
+            Total Appointments
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <div class="stat-icon user-icon">👤</div>
+            <span class="stat-badge">Access</span>
+          </div>
+
+          <h3 id="userCount">0</h3>
+
+          <p>
+            System Users
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= BOTTOM SECTION ================= -->
+
+      <div class="dashboard-grid">
+
+
+        <!-- Quick Actions -->
+
+        <div class="panel">
+
+          <div class="panel-header">
+
+            <div>
+              <p class="panel-label">
+                Quick Actions
+              </p>
+
+              <h3>
+                Hospital Operations
+              </h3>
+            </div>
+
+          </div>
+
+
+          <div class="quick-actions">
+
+            <a href="departments.html" class="quick-card">
+              <span>🏢</span>
+              <strong>Departments</strong>
+              <small>Manage departments</small>
+            </a>
+
+            <a href="doctors.html" class="quick-card">
+              <span>👨‍⚕️</span>
+              <strong>Doctors</strong>
+              <small>Manage doctors</small>
+            </a>
+
+            <a href="rooms.html" class="quick-card">
+              <span>🛏️</span>
+              <strong>Rooms</strong>
+              <small>Manage rooms</small>
+            </a>
+
+            <a href="medicines.html" class="quick-card">
+              <span>💊</span>
+              <strong>Medicines</strong>
+              <small>Manage inventory</small>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Appointment Panel -->
+
+        <div class="panel appointment-panel">
+
+          <div class="panel-header">
+
+            <div>
+              <p class="panel-label">
+                Appointments
+              </p>
+
+              <h3>
+                Appointment Management
+              </h3>
+            </div>
+
+            <a href="view-appointments.html"
+               class="view-link">
+              View All →
+            </a>
+
+          </div>
+
+
+          <div class="appointment-actions">
+
+            <a href="create-appointment.html"
+               class="appointment-action primary-action">
+
+              <span class="action-icon">➕</span>
+
+              <div>
+                <strong>
+                  Create Appointment
+                </strong>
+
+                <small>
+                  Schedule patient consultation
+                </small>
+              </div>
+
+            </a>
+
+
+            <a href="view-appointments.html"
+               class="appointment-action">
+
+              <span class="action-icon">📅</span>
+
+              <div>
+                <strong>
+                  View Appointments
+                </strong>
+
+                <small>
+                  Check scheduled appointments
+                </small>
+              </div>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Footer -->
+
+      <footer class="dashboard-footer">
+        <span>© 2026 MediCRM</span>
+        <span>Hospital Management System</span>
+      </footer>
+
+    </section>
+
+  </main>
+
+
+  <script src="js/dashboard.js"></script>
+
+</body>
+</html>

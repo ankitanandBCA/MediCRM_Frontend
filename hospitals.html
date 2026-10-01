@@ -1,0 +1,1658 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Network — MediCRM</title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+
+        /* =====================================================
+           HOSPITAL GRID
+        ===================================================== */
+
+        .hospital-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+            margin-top: 40px;
+        }
+
+
+        /* =====================================================
+           HOSPITAL CARD
+        ===================================================== */
+
+        .hospital-card {
+
+            background: #ffffff;
+
+            border: 1px solid
+                rgba(15, 118, 110, 0.14);
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 12px 35px
+                rgba(11, 31, 42, 0.10);
+
+            transition: 0.3s ease;
+        }
+
+
+        .hospital-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 24px 50px
+                rgba(11, 31, 42, 0.16);
+        }
+
+
+        /* =====================================================
+           HOSPITAL IMAGE
+        ===================================================== */
+
+        .hospital-image {
+
+            width: 100%;
+
+            height: 220px;
+
+            overflow: hidden;
+
+            background: #e8f7f4;
+        }
+
+
+        .hospital-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform 0.4s ease;
+        }
+
+
+        .hospital-card:hover
+        .hospital-image img {
+
+            transform:
+                scale(1.06);
+        }
+
+
+        /* =====================================================
+           HOSPITAL CONTENT
+        ===================================================== */
+
+        .hospital-content {
+
+            padding: 22px;
+        }
+
+
+        .hospital-name {
+
+            font-family:
+                "Outfit",
+                sans-serif;
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            color: #0b1f2a;
+
+            margin: 0 0 10px;
+        }
+
+
+        .hospital-location {
+
+            color: #5b7180;
+
+            font-size: 13px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hospital-info {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hospital-info p {
+
+            margin: 0;
+
+            color: #435d68;
+
+            font-size: 13px;
+
+            word-break: break-word;
+        }
+
+
+        .hospital-info strong {
+
+            color: #102a37;
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .hospital-login-btn {
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 999px;
+
+            padding: 13px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #14b8a6,
+                    #0f766e
+                );
+
+            color: white;
+
+            font-family:
+                "Plus Jakarta Sans",
+                sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+        }
+
+
+        .hospital-login-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 22px
+                rgba(15, 118, 110, 0.25);
+        }
+
+
+        /* =====================================================
+           EMPTY CARD
+        ===================================================== */
+
+        .empty-card {
+
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            padding: 60px 30px;
+
+            border:
+                1px dashed
+                rgba(15, 118, 110, 0.30);
+
+            border-radius: 22px;
+
+            background: #ffffff;
+        }
+
+
+        .empty-card h3 {
+
+            font-family:
+                "Outfit",
+                sans-serif;
+
+            color: #0b1f2a;
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .empty-card p {
+
+            color: #5b7180;
+        }
+
+
+        /* =====================================================
+           LOGIN MODAL
+        ===================================================== */
+
+        .login-modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(11, 31, 42, 0.55);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 9999;
+        }
+
+
+        .login-modal[hidden] {
+
+            display: none;
+        }
+
+
+        .login-popup {
+
+            width:
+                min(440px, 100%);
+
+            background: #ffffff;
+
+            border-radius: 22px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 24px 60px
+                rgba(11, 31, 42, 0.25);
+
+            animation:
+                popupShow 0.2s ease;
+        }
+
+
+        @keyframes popupShow {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(15px)
+                    scale(0.98);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           LOGIN HEADER
+        ===================================================== */
+
+        .login-popup-head {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                flex-start;
+
+            margin-bottom: 25px;
+        }
+
+
+        .login-popup-head h3 {
+
+            font-family:
+                "Outfit",
+                sans-serif;
+
+            font-size: 28px;
+
+            color: #0b1f2a;
+
+            margin: 0;
+        }
+
+
+        .login-popup-head p {
+
+            margin-top: 5px;
+
+            color: #5b7180;
+
+            font-size: 13px;
+        }
+
+
+        .login-close {
+
+            width: 35px;
+
+            height: 35px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #eef7f5;
+
+            color: #0b1f2a;
+
+            font-size: 23px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           LOGIN FORM
+        ===================================================== */
+
+        .login-form-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .login-form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: #102a37;
+        }
+
+
+        .login-form-group input {
+
+            width: 100%;
+
+            height: 50px;
+
+            padding:
+                0 14px;
+
+            box-sizing: border-box;
+
+            border:
+                1px solid
+                #d7e6e2;
+
+            border-radius: 12px;
+
+            background:
+                #f8fdfc;
+
+            outline: none;
+
+            font-family:
+                "Plus Jakarta Sans",
+                sans-serif;
+
+            font-size: 14px;
+
+            color: #102a37;
+        }
+
+
+        .login-form-group input:focus {
+
+            border-color:
+                #0f766e;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(15, 118, 110, 0.08);
+        }
+
+
+        /* =====================================================
+           LOGIN SUBMIT
+        ===================================================== */
+
+        .login-submit {
+
+            width: 100%;
+
+            height: 52px;
+
+            border: none;
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #14b8a6,
+                    #0f766e
+                );
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .login-submit:hover {
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .login-submit:disabled {
+
+            opacity: 0.65;
+
+            cursor:
+                not-allowed;
+
+            transform: none;
+        }
+
+
+        /* =====================================================
+           LOGIN ERROR
+        ===================================================== */
+
+        .login-error {
+
+            display: none;
+
+            margin-bottom: 15px;
+
+            padding:
+                11px 13px;
+
+            border-radius: 10px;
+
+            background:
+                #fff1f2;
+
+            color:
+                #e11d48;
+
+            font-size: 12px;
+        }
+
+
+        .login-error.show {
+
+            display: block;
+        }
+
+
+        /* =====================================================
+           LOGIN SUCCESS
+        ===================================================== */
+
+        .login-success {
+
+            display: none;
+
+            margin-bottom: 15px;
+
+            padding:
+                11px 13px;
+
+            border-radius: 10px;
+
+            background:
+                #ecfdf5;
+
+            color:
+                #047857;
+
+            font-size: 12px;
+        }
+
+
+        .login-success.show {
+
+            display: block;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 960px) {
+
+            .hospital-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 640px) {
+
+            .hospital-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .login-popup {
+
+                padding: 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body class="show-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header
+        class="nav scrolled"
+        id="nav"
+    >
+
+        <a
+            class="brand"
+            href="index.html"
+        >
+
+            <span class="brand-mark">
+                +
+            </span>
+
+            <span>
+                MediCRM
+            </span>
+
+        </a>
+
+
+        <nav
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="index.html#how">
+                How it works
+            </a>
+
+            <a href="index.html#features">
+                Features
+            </a>
+
+            <a href="hospitals.html">
+                Hospital network
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+    <main class="section">
+
+        <div class="container">
+
+
+            <div class="section-head">
+
+                <p class="eyebrow">
+                    Hospital show page
+                </p>
+
+
+                <h2>
+                    Registered hospitals on the
+                    MediCRM network
+                </h2>
+
+
+                <p>
+                    Select your hospital and login
+                    using your registered email and
+                    license number.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 HOSPITAL GRID
+            ================================================= -->
+
+            <div
+                class="hospital-grid"
+                id="hospitalGrid"
+            >
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         LOGIN MODAL
+    ===================================================== -->
+
+    <div
+        class="login-modal"
+        id="loginModal"
+        hidden
+    >
+
+        <div class="login-popup">
+
+
+            <!-- LOGIN HEADER -->
+
+            <div class="login-popup-head">
+
+                <div>
+
+                    <h3>
+                        Hospital Login
+                    </h3>
+
+
+                    <p id="loginHospitalName">
+                        Login to your hospital account
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="login-close"
+                    id="closeLogin"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOGIN FORM
+            ================================================= -->
+
+            <form id="loginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="login-form-group">
+
+                    <label for="loginEmail">
+                        Email
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter hospital email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- LICENSE NUMBER -->
+
+                <div class="login-form-group">
+
+                    <label for="loginLicense">
+                        License Number
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="loginLicense"
+                        placeholder="Enter license number"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- ERROR -->
+
+                <div
+                    class="login-error"
+                    id="loginError"
+                >
+                </div>
+
+
+
+                <!-- SUCCESS -->
+
+                <div
+                    class="login-success"
+                    id="loginSuccess"
+                >
+                    Login successful. Redirecting...
+                </div>
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                    id="loginButton"
+                >
+
+                    Login to Hospital Dashboard →
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           API CONFIG
+        ===================================================== */
+
+        const API_BASE_URL =
+            "http://localhost:7001/api/hospital";
+
+
+        const API_ALL_HOSPITALS =
+            `${API_BASE_URL}/all`;
+
+
+        const API_LOGIN =
+            `${API_BASE_URL}/login`;
+
+
+
+        /* =====================================================
+           DOM
+        ===================================================== */
+
+        const hospitalGrid =
+            document.getElementById(
+                "hospitalGrid"
+            );
+
+
+        const loginModal =
+            document.getElementById(
+                "loginModal"
+            );
+
+
+        const loginForm =
+            document.getElementById(
+                "loginForm"
+            );
+
+
+        const loginEmail =
+            document.getElementById(
+                "loginEmail"
+            );
+
+
+        const loginLicense =
+            document.getElementById(
+                "loginLicense"
+            );
+
+
+        const loginError =
+            document.getElementById(
+                "loginError"
+            );
+
+
+        const loginSuccess =
+            document.getElementById(
+                "loginSuccess"
+            );
+
+
+        const loginHospitalName =
+            document.getElementById(
+                "loginHospitalName"
+            );
+
+
+        const closeLogin =
+            document.getElementById(
+                "closeLogin"
+            );
+
+
+        const loginButton =
+            document.getElementById(
+                "loginButton"
+            );
+
+
+
+        /* =====================================================
+           HOSPITAL IMAGES
+        ===================================================== */
+
+        const hospitalImages = [
+
+            "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=900&q=80",
+
+            "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=80",
+
+            "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=80",
+
+            "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=80"
+
+        ];
+
+
+
+        /* =====================================================
+           ESCAPE HTML
+        ===================================================== */
+
+        function escapeHtml(value) {
+
+            if (
+                value === null ||
+                value === undefined
+            ) {
+
+                return "";
+
+            }
+
+
+            return String(value)
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+        }
+
+
+
+        /* =====================================================
+           LOAD HOSPITALS
+        ===================================================== */
+
+        async function loadHospitals() {
+
+            hospitalGrid.innerHTML = `
+
+                <div class="empty-card">
+
+                    <h3>
+                        Loading hospitals...
+                    </h3>
+
+                    <p>
+                        Please wait while we load
+                        the hospital network.
+                    </p>
+
+                </div>
+
+            `;
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        API_ALL_HOSPITALS
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Unable to fetch hospitals"
+                    );
+                }
+
+
+                const hospitals =
+                    await response.json();
+
+
+                console.log(
+                    "Hospitals:",
+                    hospitals
+                );
+
+
+                renderHospitals(
+                    hospitals
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Hospital API Error:",
+                    error
+                );
+
+
+                hospitalGrid.innerHTML = `
+
+                    <div class="empty-card">
+
+                        <h3>
+                            Unable to load hospitals
+                        </h3>
+
+                        <p>
+                            Please make sure the
+                            Hospital Service is running.
+                        </p>
+
+                    </div>
+
+                `;
+            }
+        }
+
+
+
+        /* =====================================================
+           RENDER HOSPITALS
+        ===================================================== */
+
+        function renderHospitals(
+            hospitals
+        ) {
+
+            if (
+                !Array.isArray(hospitals) ||
+                hospitals.length === 0
+            ) {
+
+                hospitalGrid.innerHTML = `
+
+                    <div class="empty-card">
+
+                        <h3>
+                            No hospitals registered yet
+                        </h3>
+
+                        <p>
+                            Registered hospitals will
+                            appear here.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            hospitalGrid.innerHTML = "";
+
+
+            hospitals.forEach(
+                (hospital, index) => {
+
+
+                    const image =
+                        hospitalImages[
+                            index %
+                            hospitalImages.length
+                        ];
+
+
+                    const card =
+                        document.createElement(
+                            "article"
+                        );
+
+
+                    card.className =
+                        "hospital-card";
+
+
+                    card.innerHTML = `
+
+                        <div class="hospital-image">
+
+                            <img
+                                src="${image}"
+                                alt="${escapeHtml(hospital.name)}"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <div class="hospital-content">
+
+                            <h3 class="hospital-name">
+
+                                ${escapeHtml(
+                                    hospital.name
+                                )}
+
+                            </h3>
+
+
+                            <div class="hospital-location">
+
+                                📍
+
+                                ${escapeHtml(
+                                    hospital.city
+                                )},
+
+                                ${escapeHtml(
+                                    hospital.state
+                                )}
+
+                            </div>
+
+
+                            <div class="hospital-info">
+
+                                <p>
+
+                                    <strong>
+                                        Email:
+                                    </strong>
+
+                                    ${escapeHtml(
+                                        hospital.email
+                                    )}
+
+                                </p>
+
+
+                                <p>
+
+                                    <strong>
+                                        Phone:
+                                    </strong>
+
+                                    ${escapeHtml(
+                                        hospital.phone
+                                    )}
+
+                                </p>
+
+
+                                <p>
+
+                                    <strong>
+                                        Address:
+                                    </strong>
+
+                                    ${escapeHtml(
+                                        hospital.address
+                                    )}
+
+                                </p>
+
+
+                                <p>
+
+                                    <strong>
+                                        Pincode:
+                                    </strong>
+
+                                    ${escapeHtml(
+                                        hospital.pincode
+                                    )}
+
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="hospital-login-btn"
+                            >
+
+                                Hospital Login →
+
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+
+                    /* =================================================
+                       LOGIN BUTTON
+                    ================================================= */
+
+                    const loginBtn =
+                        card.querySelector(
+                            ".hospital-login-btn"
+                        );
+
+
+                    loginBtn.addEventListener(
+                        "click",
+                        () => {
+
+                            openLogin(
+                                hospital
+                            );
+
+                        }
+                    );
+
+
+                    hospitalGrid.appendChild(
+                        card
+                    );
+
+                }
+            );
+        }
+
+
+
+        /* =====================================================
+           OPEN LOGIN
+        ===================================================== */
+
+        function openLogin(
+            hospital
+        ) {
+
+            loginHospitalName.textContent =
+                hospital.name
+                    ? `Login to ${hospital.name}`
+                    : "Login to your hospital account";
+
+
+            /*
+             * Card se email automatically
+             * fill ho jayega.
+             */
+
+            loginEmail.value =
+                hospital.email || "";
+
+
+            loginLicense.value =
+                "";
+
+
+            loginError.classList.remove(
+                "show"
+            );
+
+
+            loginSuccess.classList.remove(
+                "show"
+            );
+
+
+            loginModal.hidden =
+                false;
+
+
+            document.body.style.overflow =
+                "hidden";
+
+
+            loginLicense.focus();
+        }
+
+
+
+        /* =====================================================
+           CLOSE LOGIN
+        ===================================================== */
+
+        function closeLoginModal() {
+
+            loginModal.hidden =
+                true;
+
+
+            document.body.style.overflow =
+                "";
+
+
+            loginForm.reset();
+
+
+            loginError.classList.remove(
+                "show"
+            );
+
+
+            loginSuccess.classList.remove(
+                "show"
+            );
+        }
+
+
+        closeLogin.addEventListener(
+            "click",
+            closeLoginModal
+        );
+
+
+
+        /* =====================================================
+           OUTSIDE CLICK
+        ===================================================== */
+
+        loginModal.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target ===
+                    loginModal
+                ) {
+
+                    closeLoginModal();
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           LOGIN
+        ===================================================== */
+
+        loginForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    loginEmail.value.trim();
+
+
+                const licanceNo =
+                    loginLicense.value.trim();
+
+
+                /* ================= VALIDATION ================= */
+
+                if (
+                    !email ||
+                    !licanceNo
+                ) {
+
+                    loginError.textContent =
+                        "Email and License Number are required.";
+
+                    loginError.classList.add(
+                        "show"
+                    );
+
+                    return;
+                }
+
+
+                /* ================= BUTTON ================= */
+
+                loginButton.disabled =
+                    true;
+
+
+                loginButton.textContent =
+                    "Checking...";
+
+
+                loginError.classList.remove(
+                    "show"
+                );
+
+
+                loginSuccess.classList.remove(
+                    "show"
+                );
+
+
+                try {
+
+                    /* ================= BACKEND ================= */
+
+                    const response =
+                        await fetch(
+                            API_LOGIN,
+                            {
+
+                                method:
+                                    "POST",
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/json"
+
+                                },
+
+                                body:
+                                    JSON.stringify({
+
+                                        email:
+                                            email,
+
+                                        licanceNo:
+                                            licanceNo
+
+                                    })
+
+                            }
+                        );
+
+
+                    /* ================= FAILED ================= */
+
+                    if (!response.ok) {
+
+                        let message =
+                            "Invalid email or license number.";
+
+
+                        try {
+
+                            const errorData =
+                                await response.json();
+
+
+                            if (
+                                errorData.message
+                            ) {
+
+                                message =
+                                    errorData.message;
+
+                            }
+
+                        } catch (error) {
+
+                            console.log(
+                                "Backend error response"
+                            );
+                        }
+
+
+                        loginError.textContent =
+                            message;
+
+
+                        loginError.classList.add(
+                            "show"
+                        );
+
+
+                        return;
+                    }
+
+
+                    /* ================= SUCCESS ================= */
+
+                    const hospital =
+                        await response.json();
+
+
+                    console.log(
+                        "Logged in hospital:",
+                        hospital
+                    );
+
+
+                    /* ================= CHECK ID ================= */
+
+                    if (
+                        !hospital.hospitalId
+                    ) {
+
+                        loginError.textContent =
+                            "Hospital ID backend se receive nahi hua.";
+
+                        loginError.classList.add(
+                            "show"
+                        );
+
+                        return;
+                    }
+
+
+                    /* ================= SAVE ID ================= */
+
+                    localStorage.setItem(
+                        "hospitalId",
+                        hospital.hospitalId
+                    );
+
+
+                    /* ================= SAVE DATA ================= */
+
+                    sessionStorage.setItem(
+                        "loggedInHospital",
+                        JSON.stringify(
+                            hospital
+                        )
+                    );
+
+
+                    /* ================= SUCCESS ================= */
+
+                    loginSuccess.textContent =
+                        "Login successful. Redirecting...";
+
+
+                    loginSuccess.classList.add(
+                        "show"
+                    );
+
+
+                    /* ================= DASHBOARD ================= */
+
+                    setTimeout(
+                        () => {
+
+                            window.location.href =
+                                "hospitalDashBoard.html";
+
+                        },
+                        700
+                    );
+
+                }
+
+
+                catch (error) {
+
+                    console.error(
+                        "Login API Error:",
+                        error
+                    );
+
+
+                    loginError.textContent =
+                        "Hospital Service se connection nahi ho raha.";
+
+                    loginError.classList.add(
+                        "show"
+                    );
+
+                }
+
+
+                finally {
+
+                    loginButton.disabled =
+                        false;
+
+
+                    loginButton.textContent =
+                        "Login to Hospital Dashboard →";
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           PAGE LOAD
+        ===================================================== */
+
+        loadHospitals();
+
+    </script>
+
+</body>
+
+</html>
+

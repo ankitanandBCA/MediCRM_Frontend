@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediCRM — The Smart Bridge Between Hospitals & Patients</title>
+  <meta name="description" content="MediCRM is the modern intermediator between hospitals and patients. Register your hospital, manage care, and deliver a seamless patient experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="#home">
+      <span class="brand-mark">+</span>
+      <span>MediCRM</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#hospitals">For hospitals</a>
+      <a href="#patients">For patients</a>
+      <a href="hospitals.html">Hospital network</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn ghost" data-open-login>Sign in</button>
+      <button class="btn primary" type="button" data-open-register onclick="hospitalRegis()">Register hospital</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2000&q=80" alt="Modern hospital corridor" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Hospital ↔ Patient intermediator</p>
+          <h1>Care that connects hospitals and patients — beautifully.</h1>
+          <p class="lead">
+            MediCRM is the modern CRM for healthcare. Hospitals register once,
+            patients find trusted care instantly, and every appointment, record,
+            and conversation lives in one calm, secure platform.
+          </p>
+          <div class="hero-cta">
+            <button class="btn primary lg" type="button" data-open-register>Register your hospital</button>
+            <a class="btn glass lg" href="#how">See how it works</a>
+          </div>
+          <div class="trust-row">
+            <div class="avatars">
+              <img src="https://images.unsplash.com/photo-1559839734-34b82faad866?auto=format&fit=crop&w=120&q=80" alt="" />
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=120&q=80" alt="" />
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=120&q=80" alt="" />
+            </div>
+            <p>Trusted by <strong>2,400+</strong> hospitals and <strong>1.8M</strong> patients</p>
+          </div>
+        </div>
+        <div class="hero-card reveal delay">
+          <div class="glass-panel">
+            <div class="panel-top">
+              <span class="dot live"></span>
+              Live network
+            </div>
+            <h3>A patient just requested cardiology care</h3>
+            <p>MediCRM matches them with the nearest registered hospital that has an available specialist.</p>
+            <div class="match">
+              <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=400&q=80" alt="Hospital building" />
+              <div>
+                <strong>Sunrise Heart Institute</strong>
+                <span>2.4 km · 12 min wait · 4.9 rating</span>
+              </div>
+            </div>
+            <button class="btn primary full" data-open-register>Accept & schedule</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logos">
+      <div class="container logos-row">
+        <span>Built for modern care teams</span>
+        <strong>Apollo Network</strong>
+        <strong>CityCare</strong>
+        <strong>MediPlus</strong>
+        <strong>WellNest</strong>
+        <strong>Pulse Group</strong>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">The intermediator</p>
+          <h2>Hospitals treat. Patients seek care. MediCRM sits in the middle — and makes both sides effortless.</h2>
+          <p>Koi bhi hospital yahan register karke apna network, doctors, beds aur appointments manage kar sakta hai. Patients ko nearest trusted hospital milta hai — bina confusion, bina wait-list chaos.</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal">
+            <span class="step-num">01</span>
+            <h3>Hospital registers</h3>
+            <p>Create a verified hospital profile: departments, doctors, beds, insurance, and visiting hours in minutes.</p>
+          </article>
+          <article class="step reveal delay">
+            <span class="step-num">02</span>
+            <h3>Patients discover care</h3>
+            <p>Patients search by symptom, specialty, location, or doctor — and see real-time availability, not outdated lists.</p>
+          </article>
+          <article class="step reveal delay-2">
+            <span class="step-num">03</span>
+            <h3>MediCRM matches both</h3>
+            <p>Smart routing books the right slot, shares records securely, and keeps hospital staff and patients in sync.</p>
+          </article>
+        </div>
+        <div class="how-visual reveal">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80" alt="Doctor reviewing patient information on a tablet" />
+          <div class="how-caption">
+            <h3>One platform. Two worlds. Zero friction.</h3>
+            <p>From first search to discharge summary, MediCRM is the trusted layer between hospital operations and the patient journey.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Software features</p>
+          <h2>Everything a hospital CRM should be — and a patient app already is.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <div class="icon">🏥</div>
+            <h3>Hospital onboarding</h3>
+            <p>Self-serve registration with document verification, multi-branch support, and branded patient portals.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="icon">🩺</div>
+            <h3>Smart matching</h3>
+            <p>Match patients to the right hospital by specialty, wait time, insurance, language, and bed availability.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="icon">📅</div>
+            <h3>Appointments & OPD</h3>
+            <p>Live calendars for doctors, token queues, teleconsults, and no-show reduction reminders.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="icon">📁</div>
+            <h3>Unified records</h3>
+            <p>Secure EHR snippets, prescriptions, lab reports, and visit history shared with consent.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="icon">💳</div>
+            <h3>Billing & insurance</h3>
+            <p>Estimates, invoices, UPI/cards, and insurance pre-auth — transparent for patients, clean for finance.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="icon">🛏️</div>
+            <h3>Bed & IPD ops</h3>
+            <p>Live bed map, admission-to-discharge workflow, OT scheduling, and family status updates.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="icon">💬</div>
+            <h3>Care messaging</h3>
+            <p>Encrypted chat between patients, front desk, and doctors — with templates for follow-ups.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="icon">📊</div>
+            <h3>Analytics dashboard</h3>
+            <p>Occupancy, revenue, patient NPS, department load, and acquisition from the MediCRM network.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="split" id="hospitals">
+      <div class="split-media">
+        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e975?auto=format&fit=crop&w=1400&q=80" alt="Hospital staff collaborating" />
+      </div>
+      <div class="split-copy">
+        <p class="eyebrow">For hospitals</p>
+        <h2>Register once. Fill your OPDs, ICUs, and operating rooms with the right patients.</h2>
+        <ul class="checklist">
+          <li>Verified listing on the MediCRM patient network</li>
+          <li>Doctor roster, slots, and department pages</li>
+          <li>Inbound patient leads routed to your CRM</li>
+          <li>Staff roles: admin, front desk, doctors, billing</li>
+          <li>Compliance-ready logs and consent trails</li>
+        </ul>
+        <button class="btn primary" type="button" data-open-register>Start hospital registration</button>
+      </div>
+    </section>
+
+    <section class="split reverse" id="patients">
+      <div class="split-media">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1400&q=80" alt="Patient being cared for by a clinician" />
+      </div>
+      <div class="split-copy">
+        <p class="eyebrow">For patients</p>
+        <h2>Find the right hospital, book in seconds, and walk in knowing you’re expected.</h2>
+        <ul class="checklist">
+          <li>Search nearby hospitals by symptom or specialty</li>
+          <li>Compare wait times, ratings, and estimated cost</li>
+          <li>Book OPD, diagnostics, or teleconsult instantly</li>
+          <li>Carry your history — prescriptions, labs, visits</li>
+          <li>Get live updates from admission to discharge</li>
+        </ul>
+        <button class="btn secondary" data-open-login>Create a patient account</button>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container stats-grid">
+        <div>
+          <strong data-count="2400">0</strong>
+          <span>Registered hospitals</span>
+        </div>
+        <div>
+          <strong data-count="1800000">0</strong>
+          <span>Patients served</span>
+        </div>
+        <div>
+          <strong data-count="98">0</strong>
+          <span>Match success %</span>
+        </div>
+        <div>
+          <strong data-count="11">0</strong>
+          <span>Minutes avg. booking</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="register">
+      <div class="container register-cta">
+        <p class="eyebrow">Hospital registration</p>
+        <h2>Koi bhi hospital yahan register kare — MediCRM aapko patients se jodta hai.</h2>
+        <p class="lead muted">Open the registration popup, share your details, and your hospital appears on the live network with a login on its own card.</p>
+        <div class="hero-cta">
+          <button class="btn primary lg" type="button" data-open-register>Register hospital</button>
+          <a class="btn secondary lg" href="hospitals.html">View hospital network</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#home"><span class="brand-mark">+</span> MediCRM</a>
+        <p>The intermediator that keeps hospitals full and patients confident.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="hospitals.html">Hospital network</a>
+        <button class="linkish" type="button" data-open-register>Hospital signup</button>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <a href="#patients">Patients</a>
+        <a href="#hospitals">Hospitals</a>
+        <a href="#register">Support</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>hello@medicrm.care</p>
+        <p>+91 1800-MED-CRM</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 MediCRM. Built for better hospital–patient relationships.</p>
+  </footer>
+
+  <div class="modal" id="registerModal" hidden>
+    <div class="popup-card" role="dialog" aria-labelledby="registerTitle">
+      <div class="popup-head">
+        <div>
+          <p class="eyebrow">New hospital</p>
+          <h3 id="registerTitle">Hospital registration</h3>
+        </div>
+        <button class="icon-btn" type="button" data-close-register aria-label="Close">×</button>
+      </div>
+      <form id="hospitalForm" class="popup-form">
+        <label>
+          Hospital name
+          <input type="text" name="hospitalName" required placeholder="Green Valley Multispeciality" />
+        </label>
+        <div class="row">
+          <label>
+            Email
+            <input type="email" name="email" required placeholder="admin@hospital.com" />
+          </label>
+          <label>
+            Phone no
+            <input type="tel" name="phoneNo" required placeholder="+91 98xxx xxxxx" />
+          </label>
+        </div>
+        <label>
+          Address
+          <input type="text" name="address" required placeholder="12, Care Avenue, Sector 21" />
+        </label>
+        <div class="row three">
+          <label>
+            City
+            <input type="text" name="city" required placeholder="Mumbai" />
+          </label>
+          <label>
+            State
+            <input type="text" name="state" required placeholder="Maharashtra" />
+          </label>
+          <label>
+            Pincode
+            <input type="text" name="pincode" required pattern="[0-9]{6}" placeholder="400001" />
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            License no
+            <input type="text" name="licenseNo" required placeholder="MH-HOSP-2026-1142" />
+          </label>
+          <label>
+            GST no
+            <input type="text" name="gstNo" required placeholder="27AAAAA0000A1Z5" />
+          </label>
+        </div>
+        <button class="btn primary full" type="submit">Register & go live</button>
+        <p class="form-note">After submit, your hospital card appears on the Hospital Show page.</p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="toast" role="status" hidden>
+    <div class="toast-card">
+      <strong id="toastTitle">You’re in.</strong>
+      <p id="toastBody"></p>
+      <button class="btn primary" data-close-toast>Continue</button>
+    </div>
+  </div>
+
+ 
+  <script src="js/main.js"></script>
+</body>
+</html>

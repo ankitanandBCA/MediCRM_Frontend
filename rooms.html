@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediCRM - Rooms</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/rooms.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            MediCRM
+        </div>
+
+        <div class="hospital-title">
+            Hospital Management
+        </div>
+
+        <nav>
+
+            <a href="hospital.html">
+                🏥 Hospital
+            </a>
+
+            <a href="departments.html">
+                🩺 Departments
+            </a>
+
+            <a href="doctors.html">
+                👨‍⚕️ Doctors
+            </a>
+
+            <a href="staff.html">
+                👥 Staffs
+            </a>
+
+            <a href="users.html">
+                👤 Users
+            </a>
+
+            <a href="room.html" class="active">
+                🛏️ Rooms
+            </a>
+
+            <a href="medicines.html">
+                💊 Medicines
+            </a>
+
+            <a href="appointments.html">
+                📅 View Appointment
+            </a>
+
+            <a href="create-appointment.html">
+                ➕ Create Appointment
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="top-header">
+
+            <div>
+                <h1>Room Management</h1>
+                <p>Manage hospital rooms and beds</p>
+            </div>
+
+            <div class="hospital-badge">
+                Hospital ID:
+                <span id="hospitalIdDisplay">Loading...</span>
+            </div>
+
+        </header>
+
+
+        <!-- CREATE ROOM -->
+        <section class="card">
+
+            <div class="card-header">
+                <div>
+                    <h2>Create Room</h2>
+                    <p>Add a new room to your hospital</p>
+                </div>
+            </div>
+
+
+            <form id="roomForm" class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="roomNumber">
+                        Room Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="roomNumber"
+                        placeholder="Example: R-101"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="roomType">
+                        Room Type
+                    </label>
+
+                    <select id="roomType" required>
+
+                        <option value="">
+                            Select Room Type
+                        </option>
+
+                        <option value="GENERAL">
+                            General
+                        </option>
+
+                        <option value="PRIVATE">
+                            Private
+                        </option>
+
+                        <option value="SEMI_PRIVATE">
+                            Semi Private
+                        </option>
+
+                        <option value="ICU">
+                            ICU
+                        </option>
+
+                        <option value="EMERGENCY">
+                            Emergency
+                        </option>
+
+                        <option value="OPERATION">
+                            Operation
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-button">
+
+                    <button type="submit" class="btn-primary">
+                        + Create Room
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- ROOM LIST -->
+        <section class="card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Rooms</h2>
+                    <p>Rooms registered under this hospital</p>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-secondary"
+                    id="refreshRoomsBtn">
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Room ID</th>
+                            <th>Room Number</th>
+                            <th>Room Type</th>
+                            <th>Hospital ID</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="roomTable">
+
+                        <tr>
+                            <td colspan="5" class="loading">
+                                Loading rooms...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- BED MANAGEMENT -->
+        <section class="card" id="bedSection">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>
+                        Bed Management
+                    </h2>
+
+                    <p>
+                        Selected Room:
+                        <strong id="selectedRoomText">
+                            No room selected
+                        </strong>
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- ADD BED -->
+            <form id="bedForm" class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="bedNumber">
+                        Bed Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="bedNumber"
+                        placeholder="Example: B-01"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="bedStatus">
+                        Bed Status
+                    </label>
+
+                    <select id="bedStatus" required>
+
+                        <option value="AVAILABLE">
+                            Available
+                        </option>
+
+                        <option value="OCCUPIED">
+                            Occupied
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-button">
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                        id="addBedBtn"
+                        disabled>
+                        + Add Bed
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- BED SUMMARY -->
+            <div class="summary-grid">
+
+                <div class="summary-box total">
+                    <span>Total Beds</span>
+                    <strong id="totalBeds">0</strong>
+                </div>
+
+                <div class="summary-box available">
+                    <span>Available</span>
+                    <strong id="availableBeds">0</strong>
+                </div>
+
+                <div class="summary-box occupied">
+                    <span>Occupied</span>
+                    <strong id="occupiedBeds">0</strong>
+                </div>
+
+            </div>
+
+
+            <!-- BED TABLE -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Bed ID</th>
+                            <th>Bed Number</th>
+                            <th>Status</th>
+                            <th>Room ID</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="bedTable">
+
+                        <tr>
+                            <td colspan="5" class="empty">
+                                Select a room to view beds
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/rooms.js"></script>
+
+</body>
+
+</html>

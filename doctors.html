@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediCRM - Doctors</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="css/doctors.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= TOPBAR ================= -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <span class="brand-mark">+</span>
+
+        <span>MediCRM</span>
+
+    </div>
+
+
+    <div class="page-title">
+
+        <span>Hospital Management</span>
+
+        <strong>Doctors</strong>
+
+    </div>
+
+
+    <div class="status">
+
+        <span></span>
+
+        Backend Connected
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+      
+
+
+        <p class="sidebar-label">
+            Hospital Workspace
+        </p>
+
+
+        <nav class="side-nav">
+
+            <a class="nav-link"
+               href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+
+            <a class="nav-link"
+               href="hospital.html">
+                🏥 Hospital
+            </a>
+
+
+            <a class="nav-link"
+               href="departments.html">
+                🏢 Departments
+            </a>
+
+
+            <a class="nav-link active"
+               href="doctors.html">
+                👨‍⚕️ Doctors
+            </a>
+
+
+            <a class="nav-link"
+               href="staffs.html">
+                👥 Staffs
+            </a>
+
+
+
+
+            <a class="nav-link"
+               href="rooms.html">
+                🛏️ Rooms
+            </a>
+
+
+            <a class="nav-link"
+               href="medicines.html">
+                💊 Medicines
+            </a>
+
+
+            <a class="nav-link"
+               href="create-appointment.html">
+                ➕ Create Appointment
+            </a>
+
+
+            <a class="nav-link"
+               href="view-appointments.html">
+                📅 View Appointments
+            </a>
+
+
+
+
+
+
+
+            <!-- OPD -->
+
+            <a class="nav-link"
+               href="OPD.html">
+
+                <span class="nav-icon">
+                    🏥
+                </span>
+
+                <span>
+                    OPD
+                </span>
+
+            </a>
+
+
+
+
+            <a class="nav-link"
+               href="BloodBank.html">
+
+                <span class="nav-icon">
+                    🩸
+                </span>
+
+                <span>
+                    Blood Bank
+                </span>
+
+            </a>
+
+
+            <!-- Reports -->
+
+            <a class="nav-link"
+               href="Reports.html">
+
+                <span class="nav-icon">
+                    📊
+                </span>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+
+
+
+             <a class="nav-link"
+               href="Bill.html">
+
+                <span class="nav-icon">
+                    💳
+                </span>
+
+                <span>
+                    Bill
+                </span>
+
+            </a>
+
+
+
+
+
+            
+
+        </nav>
+
+
+        <button class="logout-btn"
+                id="logoutBtn"
+                type="button">
+
+            ↪ Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="content">
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div>
+
+                <p class="eyebrow">
+                    MediCRM / Doctor
+                </p>
+
+
+                <h1>
+                    Manage Doctors
+                </h1>
+
+
+                <p class="subtitle">
+                    Add and manage doctors of your hospital.
+                </p>
+
+            </div>
+
+
+            <div class="hero-icon">
+                👨‍⚕️
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FORM LAYOUT ================= -->
+
+        <section class="layout">
+
+
+            <!-- ================= HOSPITAL PANEL ================= -->
+
+            <aside class="panel hospital-panel">
+
+                <div class="panel-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Hospital
+                        </p>
+
+                        <h2>
+                            Current Hospital
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Hospital ID -->
+
+                <div class="info-box">
+
+                    <div>
+
+                        <span>
+                            Hospital ID
+                        </span>
+
+                        <small>
+                            Logged-in hospital
+                        </small>
+
+                    </div>
+
+
+                    <strong id="hospitalIdText">
+                        -
+                    </strong>
+
+                </div>
+
+
+
+                <!-- Department -->
+
+                <div class="field">
+
+                    <label for="departmentSelect">
+
+                        Department
+
+                        <span>*</span>
+
+                    </label>
+
+
+                    <select id="departmentSelect"
+                            required>
+
+                        <option value="">
+                            Loading departments...
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Department ID -->
+
+                <div class="info-box department-info">
+
+                    <div>
+
+                        <span>
+                            Department ID
+                        </span>
+
+                        <small>
+                            Selected department
+                        </small>
+
+                    </div>
+
+
+                    <strong id="departmentIdText">
+                        -
+                    </strong>
+
+                </div>
+
+            </aside>
+
+
+
+            <!-- ================= DOCTOR FORM ================= -->
+
+            <section class="panel form-panel">
+
+
+                <div class="panel-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Doctor
+                        </p>
+
+                        <h2>
+                            Add Doctor
+                        </h2>
+
+                    </div>
+
+
+                    <span class="required-badge">
+                        * Required
+                    </span>
+
+                </div>
+
+
+
+                <form id="doctorForm">
+
+
+                    <!-- NAME -->
+
+                    <div class="field">
+
+                        <label for="name">
+
+                            Doctor Name
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="e.g. Ankit Anand"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="field">
+
+                        <label for="email">
+
+                            Email
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="doctor@gmail.com"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- PHONE -->
+
+                    <div class="field">
+
+                        <label for="phoneNo">
+
+                            Phone Number
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="phoneNo"
+                            placeholder="9876543210"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- REGISTRATION -->
+
+                    <div class="field">
+
+                        <label for="registrationNumber">
+
+                            Registration Number
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="registrationNumber"
+                            placeholder="REG12345"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- SPECIALIZATION -->
+
+                    <div class="field">
+
+                        <label for="specilization">
+
+                            Specialization
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="specilization"
+                            placeholder="Cardiologist"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- QUALIFICATION -->
+
+                    <div class="field">
+
+                        <label for="qualification">
+
+                            Qualification
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="qualification"
+                            placeholder="MBBS, MD"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- EXPERIENCE -->
+
+                    <div class="field">
+
+                        <label for="experience">
+
+                            Experience Years
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="experience"
+                            placeholder="5"
+                            min="0"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- CONSULTING FEE -->
+
+                    <div class="field">
+
+                        <label for="consultingFee">
+
+                            Consultation Fee
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="consultingFee"
+                            placeholder="500"
+                            min="0"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- STATUS -->
+
+                    <div class="field">
+
+                        <label for="stutas">
+
+                            Status
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <select id="stutas"
+                                required>
+
+                            <option value="">
+                                Select Status
+                            </option>
+
+                            <option value="ACTIVE">
+                                ACTIVE
+                            </option>
+
+                            <option value="INACTIVE">
+                                INACTIVE
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="actions">
+
+                        <button
+                            type="button"
+                            id="resetBtn"
+                            class="btn secondary">
+
+                            Reset
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn primary">
+
+                            ＋ Add Doctor
+
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- ================= DOCTOR TABLE ================= -->
+
+        <section class="panel doctor-panel">
+
+
+            <div class="panel-head">
+
+                <div>
+
+                    <p class="eyebrow">
+                        Doctor List
+                    </p>
+
+
+                    <h2>
+                        Hospital Doctors
+                    </h2>
+
+                </div>
+
+
+                <button
+                    id="refreshBtn"
+                    class="btn small"
+                    type="button">
+
+                    ↻ Refresh
+
+                </button>
+
+            </div>
+
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Phone</th>
+
+                            <th>Department</th>
+
+                            <th>Specialization</th>
+
+                            <th>Qualification</th>
+
+                            <th>Experience</th>
+
+                            <th>Fee</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="doctorTable">
+
+                        <tr>
+
+                            <td colspan="10"
+                                class="empty">
+
+                                No doctors found.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </section>
+
+</main>
+
+
+
+<script src="js/doctors.js"></script>
+
+</body>
+
+</html>
