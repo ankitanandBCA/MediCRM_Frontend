@@ -953,3 +953,26 @@ tbody tr:last-child td {
     }
 
 }
+/* Ambulance Sidebar NavLink */
+.sidebar-menu .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* Ambulance Icon */
+.sidebar-menu .sidebar-item .sidebar-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    font-size: 18px;
+}
+
+/* Hover Effect */
+.sidebar-menu .sidebar-item:hover {
+    cursor: pointer;
+}
